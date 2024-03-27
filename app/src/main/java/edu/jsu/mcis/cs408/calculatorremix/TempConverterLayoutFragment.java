@@ -46,15 +46,11 @@ public class TempConverterLayoutFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                double fahrenheit;
-                double celsius;
-
                 EditText f = binding.fahrenheitInput;
                 EditText c = binding.celsiusInput;
 
                 String fInput = f.getText().toString();
                 String cInput = c.getText().toString();
-                String convertValue;
 
                 if((fInput.isEmpty()) && (!(cInput.isEmpty()))) {
 

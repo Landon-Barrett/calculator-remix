@@ -8,7 +8,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 public class TabLayoutAdapter extends FragmentStateAdapter {
 
-    public static final int NUM_TABS = 4;
+    public static final int NUM_TABS = 3;
 
     public TabLayoutAdapter(Fragment fragment) {
         super(fragment);
@@ -24,8 +24,15 @@ public class TabLayoutAdapter extends FragmentStateAdapter {
             args.putInt(TipCalculatorLayoutFragment.ARG_ID, position + 1);
             fragment.setArguments(args);
         }
-        else {
+        else if(position == 1){
             fragment = new TempConverterLayoutFragment();
+
+            Bundle args = new Bundle();
+            args.putInt(TipCalculatorLayoutFragment.ARG_ID, position + 1);
+            fragment.setArguments(args);
+        }
+        else {
+            fragment = new DistanceConverterLayoutFragment();
 
             Bundle args = new Bundle();
             args.putInt(TipCalculatorLayoutFragment.ARG_ID, position + 1);
