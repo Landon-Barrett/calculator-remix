@@ -17,12 +17,21 @@ public class TabLayoutAdapter extends FragmentStateAdapter {
     @NonNull
     @Override
     public Fragment createFragment(int position) {
+        Fragment fragment = null;
+        if(position == 0) {
+            fragment = new TipCalculatorLayoutFragment();
+            Bundle args = new Bundle();
+            args.putInt(TipCalculatorLayoutFragment.ARG_ID, position + 1);
+            fragment.setArguments(args);
+        }
+        else {
+            fragment = new TempConverterLayoutFragment();
 
-        Fragment fragment = new TabLayoutFragment();
+            Bundle args = new Bundle();
+            args.putInt(TipCalculatorLayoutFragment.ARG_ID, position + 1);
+            fragment.setArguments(args);
+        }
 
-        Bundle args = new Bundle();
-        args.putInt(TabLayoutFragment.ARG_ID, position + 1);
-        fragment.setArguments(args);
 
         return fragment;
 

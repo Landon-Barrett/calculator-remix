@@ -1,4 +1,21 @@
 <resources>
     <string name="app_name">calculatorRemix</string>
+
+    <!-- Tip Calculator Strings -->
     <string name="fragment_id">#</string>
+    <string name="total_bill_label">Total Bill:</string>
+    <string name="tip_percentage_label">Tip Percentage:</string>
+    <string name="total_people_label">Number of People:</string>
+    <string name="calculate_button">Calculate</string>
+    <string name="total_bill_hint">Enter total</string>
+    <string name="tip_percentage_hint">Enter percentage</string>
+    <string name="total_people_hint">Total People</string>
+    <string name="tip_output">Total Per Person:</string>
+
+    <!-- Temp Converter Strings -->
+    <string name="fahrenheit_label">Fahrenheit:</string>
+    <string name="celsius_label">Celsius:</string>
+    <string name="convert_button_label">Convert</string>
+    <string name="fahrenheit_input_hint">Enter Fahrenheit..</string>
+    <string name="celsius_input_hint">Enter Celsius..</string>
 </resources>
