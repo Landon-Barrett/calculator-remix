@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -17,11 +16,7 @@ import java.text.DecimalFormat;
 import edu.jsu.mcis.cs408.calculatorremix.databinding.DistanceConverterFragmentBinding;
 
 public class DistanceConverterLayoutFragment extends Fragment {
-
-
-    // Instances of this class are used for the individual fragments within the tabbed layout
-
-    public static final String ARG_ID = "id";
+    private final static double CONVERT_VALUE = (1.609);
 
     private DistanceConverterFragmentBinding binding;
 
@@ -35,13 +30,6 @@ public class DistanceConverterLayoutFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-
-        // Get numeric ID from parameter list
-        Bundle args = getArguments();
-        String id = Integer.toString(args.getInt(ARG_ID));
-
-        // Display numeric ID in TextView in fragment layout
-        //binding.fragmentId.setText(id);
 
         binding.convertDistanceButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,7 +84,7 @@ public class DistanceConverterLayoutFragment extends Fragment {
 
             k = Double.parseDouble(kInput);
 
-            double m = (k / (1.609));
+            double m = (k / CONVERT_VALUE);
 
             DecimalFormat df = new DecimalFormat("#.00");
             convertValue = df.format(m);
@@ -116,7 +104,7 @@ public class DistanceConverterLayoutFragment extends Fragment {
 
             m = Double.parseDouble(mInput);
 
-            double k = (m * (1.609));
+            double k = (m * CONVERT_VALUE);
 
             DecimalFormat df = new DecimalFormat("#.00");
             convertValue = df.format(k);

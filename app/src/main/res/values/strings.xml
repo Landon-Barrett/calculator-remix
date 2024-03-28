@@ -2,7 +2,6 @@
     <string name="app_name">calculatorRemix</string>
 
     <!-- Tip Calculator Strings -->
-    <string name="fragment_id">#</string>
     <string name="total_bill_label">Total Bill:</string>
     <string name="tip_percentage_label">Tip Percentage:</string>
     <string name="total_people_label">Number of People:</string>
