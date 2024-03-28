@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,11 +17,6 @@ import java.text.DecimalFormat;
 import edu.jsu.mcis.cs408.calculatorremix.databinding.TempConverterFragmentBinding;
 
 public class TempConverterLayoutFragment extends Fragment {
-
-
-    // Instances of this class are used for the individual fragments within the tabbed layout
-
-    public static final String ARG_ID = "id";
 
     private TempConverterFragmentBinding binding;
 
@@ -35,13 +31,6 @@ public class TempConverterLayoutFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
-        // Get numeric ID from parameter list
-        Bundle args = getArguments();
-        String id = Integer.toString(args.getInt(ARG_ID));
-
-        // Display numeric ID in TextView in fragment layout
-        //binding.fragmentId.setText(id);
-
         binding.convertButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,15 +43,18 @@ public class TempConverterLayoutFragment extends Fragment {
 
                 if((fInput.isEmpty()) && (!(cInput.isEmpty()))) {
 
-                    f.setText(convertToFahrenheit(cInput));
+                    f.setText(convertToFahrenheit(view, cInput));
                 }
                 else if((!(fInput.isEmpty())) && (cInput.isEmpty())) {
 
-                    c.setText(convertToCelsius(fInput));
+                    c.setText(convertToCelsius(view, fInput));
                 }
                 else if((!(fInput.isEmpty())) && (!(cInput.isEmpty()))) {
 
-                    c.setText(convertToCelsius(fInput));
+                    c.setText(convertToCelsius(view, fInput));
+                }
+                else if((fInput.isEmpty()) && (cInput.isEmpty())) {
+                    Toast.makeText(view.getContext(), "Input Error", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -82,7 +74,7 @@ public class TempConverterLayoutFragment extends Fragment {
 
     }
 
-    public String convertToFahrenheit(String cInput) {
+    public String convertToFahrenheit(View view, String cInput) {
 
         double c;
         String convertValue ="";
@@ -97,12 +89,12 @@ public class TempConverterLayoutFragment extends Fragment {
             convertValue = df.format(f);
         }
         else {
-
+            Toast.makeText(view.getContext(), "Input Error", Toast.LENGTH_SHORT).show();
         }
 
         return convertValue;
     }
-    public String convertToCelsius(String fInput) {
+    public String convertToCelsius(View view, String fInput) {
 
         double f;
         String convertValue = "";
@@ -117,7 +109,7 @@ public class TempConverterLayoutFragment extends Fragment {
             convertValue = df.format(c);
         }
         else {
-
+            Toast.makeText(view.getContext(), "Input Error", Toast.LENGTH_SHORT).show();
         }
 
         return convertValue;
